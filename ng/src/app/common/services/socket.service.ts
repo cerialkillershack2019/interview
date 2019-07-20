@@ -13,8 +13,8 @@ export class SocketService {
     this.openSocket()
   }
 
-  openSocket(options: { path: string } = {path: '/ws/interview_attached'}): void {
-    this.socket = socketIo(options)
+  openSocket(url?: string): void {
+    this.socket = socketIo(url)
   }
 
   sendEventData<T = {}>(eventId: string = 'message', eventData: T): void {
