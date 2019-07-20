@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: interview
+---
+testFramework: spek
+sourceLanguage: kotlin
