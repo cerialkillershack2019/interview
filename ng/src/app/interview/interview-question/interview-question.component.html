@@ -1,7 +1,8 @@
 <label class="form-label"
        [innerHTML]="question.question">
 </label>
-<mat-radio-group (change)="handleQuestionAnswerChange($event)">
+<mat-radio-group [disabled]="disabled"
+                 (change)="handleQuestionAnswerChange($event)">
   <mat-radio-button value="True">
     Tak
   </mat-radio-button>

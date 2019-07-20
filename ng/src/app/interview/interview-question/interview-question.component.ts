@@ -12,6 +12,7 @@ import { InterviewQuestion, InterviewQuestionAnswerChange } from '../data/interv
 })
 export class InterviewQuestionComponent {
 
+  @Input() disabled: boolean
   @Input() id: number
   @Input() question: InterviewQuestion
 

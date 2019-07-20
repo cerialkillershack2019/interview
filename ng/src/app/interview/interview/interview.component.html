@@ -13,7 +13,8 @@
 <div fxLayoutGap="1rem">
   <div fxFlex="50">
     <h3 class="koj-heading koj-heading-3">Twoje pytania:</h3>
-    <koj-interview-question [id]="index"
+    <koj-interview-question [disabled]="!(name$ | async)"
+                            [id]="index"
                             [question]="question"
                             (questionAnswerChange)="handleQuestionAnswerChange($event)"
                             *ngFor="let question of (questions$ | async); trackBy: questionTracker; let index = index">

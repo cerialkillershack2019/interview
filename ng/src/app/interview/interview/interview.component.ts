@@ -20,6 +20,10 @@ export class InterviewComponent {
     return this.interviewService.selectQuestions()
   }
 
+  get name$(): Observable<string> {
+    return this.interviewService.selectName()
+  }
+
   get isAnswersSummary$(): Observable<boolean> {
     return this.interviewService.selectIsAnswersSummary()
   }
