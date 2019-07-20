@@ -2,10 +2,7 @@ package interview
 
 import io.micronaut.websocket.WebSocketBroadcaster
 import io.micronaut.websocket.WebSocketSession
-import io.micronaut.websocket.annotation.OnClose
-import io.micronaut.websocket.annotation.OnError
-import io.micronaut.websocket.annotation.OnOpen
-import io.micronaut.websocket.annotation.ServerWebSocket
+import io.micronaut.websocket.annotation.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -15,12 +12,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.util.concurrent.ConcurrentHashMap
 import javax.annotation.PostConstruct
-import javax.inject.Singleton
-import io.micronaut.websocket.annotation.OnMessage
 
-
-
-@Singleton
 @ServerWebSocket("/ws/interview_attached/")
 class InterviewApi(
     private val broadcaster: WebSocketBroadcaster
@@ -75,7 +67,7 @@ class InterviewApi(
         while (true) {
             delay(1000)
             userUsernameMap.keys.filter { it.isOpen }.forEach { session ->
-                session.send(
+                session.sendAsync(
                     JSONObject()
                         .put("userMessage", "logs logs")
                         .put("userlist", userUsernameMap.values).toString()
