@@ -4,8 +4,6 @@ import { Observable } from 'rxjs'
 
 import * as socketIo from 'socket.io-client'
 
-const DEFAULT_SERVER_URL = 'http://localhost:3000'
-
 @Injectable()
 export class SocketService {
 
@@ -15,8 +13,8 @@ export class SocketService {
     this.openSocket()
   }
 
-  openSocket(url?: string): void {
-    this.socket = socketIo(url || DEFAULT_SERVER_URL)
+  openSocket(options: { path: string } = {path: '/ws/interview_attached'}): void {
+    this.socket = socketIo(options)
   }
 
   sendEventData<T = {}>(eventId: string = 'message', eventData: T): void {
