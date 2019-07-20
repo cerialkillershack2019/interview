@@ -1,0 +1,16 @@
+<ul class="koj-no-list">
+  <li fxLayoutAlign="center center"
+      *ngFor="let answer of answersSummary; trackBy: trackByFn">
+    <ng-container *ngIf="answer">
+      <mat-icon color="primary"
+                *ngIf="answer.correct; else elseTmplBlock">
+        check_circle_outline
+      </mat-icon>
+      <ng-template #elseTmplBlock>
+        <mat-icon color="warn">
+          cancel
+        </mat-icon>
+      </ng-template>
+    </ng-container>
+  </li>
+</ul>

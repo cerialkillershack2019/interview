@@ -1,0 +1,31 @@
+<h2 class="koj-heading koj-heading-2">
+  Interview
+</h2>
+
+<div fxLayoutGap="1rem">
+  <div fxFlex="50">
+    <h3 class="koj-heading koj-heading-3">Twoje pytania:</h3>
+    <koj-interview-question [id]="index"
+                            [question]="question"
+                            (questionAnswerChange)="handleQuestionAnswerChange($event)"
+                            *ngFor="let question of (questions$ | async); trackBy: questionTracker; let index = index">
+    </koj-interview-question>
+  </div>
+
+  <div fxFlex="10"
+       *ngIf="isAnswersSummary$ | async">
+    <h3 class="koj-heading koj-heading-3">Twoje odpowiedzi:</h3>
+    <koj-interview-answers-summary [answersSummary]="answersSummary$ | async">
+    </koj-interview-answers-summary>
+  </div>
+  <div fxFlex="40"
+       fxLayout="row"
+       fxLayoutGap="1rem"
+       *ngIf="isPlayersAnswersSummary$ | async">
+    <div *ngFor="let playerAnswersSummary of (playersAnswersSummary$ | async); trackBy: playersAnswersSummaryTracker">
+      <h3 class="koj-heading koj-heading-3 koj-text-no-wrap">Odpowiedzi przeciwnika ({{ playerAnswersSummary.name }}):</h3>
+      <koj-interview-answers-summary [answersSummary]="playerAnswersSummary.answersSummary">
+      </koj-interview-answers-summary>
+    </div>
+  </div>
+</div>

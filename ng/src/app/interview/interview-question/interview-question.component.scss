@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  padding: .5rem 0;
+}
+
+.form {
+  &-label {
+    display: block;
+    margin: 1.6rem 0;
+  }
+}
+
+mat {
+  &-radio-button,
+  &-checkbox {
+    display: block;
+    margin: .8rem 0;
+  }
+}
