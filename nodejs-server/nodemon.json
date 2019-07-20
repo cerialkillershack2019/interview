@@ -1,0 +1,7 @@
+{
+  "watch": [
+    "index.html",
+    "main.css",
+    "main.js"
+  ]
+}
