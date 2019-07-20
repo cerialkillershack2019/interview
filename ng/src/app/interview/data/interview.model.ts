@@ -4,10 +4,10 @@ export interface InterviewState {
   questions: InterviewQuestion[]
   questionAnswers: InterviewQuestionAnswer[]
   answersSummary: InterviewAnswer[]
-  playersAnswersSummary: InterviewPlayersAnswersSummary[]
+  playersAnswersSummary: InterviewPlayerAnswersSummary[]
 }
 
-export interface InterviewPlayersAnswersSummary {
+export interface InterviewPlayerAnswersSummary {
   name: string
   answersSummary: InterviewAnswer[]
 }

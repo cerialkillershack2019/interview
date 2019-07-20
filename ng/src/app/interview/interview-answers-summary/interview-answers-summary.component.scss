@@ -1,5 +1,4 @@
 :host {
-  min-height: 12rem;
   display: block;
 }
 
@@ -12,4 +11,9 @@ mat-icon {
 
 li {
   padding: 3.5rem 0;
+}
+
+:host,
+li {
+  min-height: 12rem;
 }

@@ -2,6 +2,14 @@
   Interview
 </h2>
 
+<mat-form-field appearance="outline">
+  <mat-label>Nazwa kandydata</mat-label>
+  <input matInput
+         [disabled]="isAnswersSummary$ | async"
+         (input)="handleNameChange($event?.target?.value)">
+  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+</mat-form-field>
+
 <div fxLayoutGap="1rem">
   <div fxFlex="50">
     <h3 class="koj-heading koj-heading-3">Twoje pytania:</h3>

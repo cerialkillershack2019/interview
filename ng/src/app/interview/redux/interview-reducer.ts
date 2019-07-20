@@ -18,6 +18,9 @@ export function interviewReducer(state: InterviewState = initialState, action?: 
     case InterviewActionType.UPDATE_QUESTIONS: {
       return {...state, questions: action.questions}
     }
+    case InterviewActionType.UPDATE_NAME: {
+      return {...state, name: action.name}
+    }
     case InterviewActionType.UPDATE_ANSWER: {
       const questionAnswers = (state.questionAnswers || []).slice()
       const index = state.questions.findIndex((_, i) => i === action.questionAnswer.id)
@@ -25,8 +28,10 @@ export function interviewReducer(state: InterviewState = initialState, action?: 
       const answersSummary = (state.answersSummary || []).slice()
       questionAnswers[index] = action.questionAnswer
       answersSummary[index] = {id: index, correct: question.correct_answer === action.questionAnswer.answer}
-      const playersAnswersSummary = [...(state.playersAnswersSummary || []), {name: 'sdsd', answersSummary}] // TODO
-      return {...state, questionAnswers, answersSummary, playersAnswersSummary}
+      return {...state, questionAnswers, answersSummary}
+    }
+    case InterviewActionType.UPDATE_PLAYERS_ANSWERS_SUMMARY: {
+      return {...state, playersAnswersSummary: action.playersAnswersSummary}
     }
     default: {
       return state
