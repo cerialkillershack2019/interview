@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core'
 
 import { Observable } from 'rxjs'
 
-import { InterviewAnswer, InterviewPlayersAnswersSummary, InterviewQuestion, InterviewQuestionAnswerChange } from '../data/interview.model'
+import { InterviewAnswer, InterviewPlayerAnswersSummary, InterviewQuestion, InterviewQuestionAnswerChange } from '../data/interview.model'
 import { InterviewService } from '../redux/interview.service'
 
 @Component({
@@ -32,8 +32,12 @@ export class InterviewComponent {
     return this.interviewService.selectAnswersSummary()
   }
 
-  get playersAnswersSummary$(): Observable<InterviewPlayersAnswersSummary[]> {
+  get playersAnswersSummary$(): Observable<InterviewPlayerAnswersSummary[]> {
     return this.interviewService.selectPlayersAnswersSummary()
+  }
+
+  handleNameChange(name: string): void {
+    return this.interviewService.updateName(name)
   }
 
   handleQuestionAnswerChange(change: InterviewQuestionAnswerChange): void {
@@ -44,7 +48,7 @@ export class InterviewComponent {
     return question
   }
 
-  playersAnswersSummaryTracker(_: number, {name}: InterviewPlayersAnswersSummary): string {
+  playersAnswersSummaryTracker(_: number, {name}: InterviewPlayerAnswersSummary): string {
     return name
   }
 
