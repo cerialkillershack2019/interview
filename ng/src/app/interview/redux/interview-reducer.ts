@@ -31,7 +31,7 @@ export function interviewReducer(state: InterviewState = initialState, action?: 
       return {...state, questionAnswers, answersSummary}
     }
     case InterviewActionType.UPDATE_PLAYERS_ANSWERS_SUMMARY: {
-      return {...state, playersAnswersSummary: action.playersAnswersSummary}
+      return {...state, playersAnswersSummary: action.playersAnswersSummary.filter(({name}) => name !== state.name)}
     }
     default: {
       return state
