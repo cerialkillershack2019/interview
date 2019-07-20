@@ -25,7 +25,7 @@ class HelloController {
         return userId.toString()
     }
 
-    @Get(produces = [MediaType.TEXT_PLAIN])
+    @Get(produces = [MediaType.TEXT_PLAIN], value = "/answers")
     fun answers(): String {
         val userId = UUID.randomUUID()
         //usersAnswers.putIfAbsent(userId, )

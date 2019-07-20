@@ -23,9 +23,6 @@ out-tsc
 node_modules
 
 # IDEs and editors
-.idea
-.project
-.classpath
 .c9/
 *.launch
 .settings/
@@ -49,5 +46,3 @@ testem.log
 typings
 
 # System Files
-.DS_Store
-Thumbs.db
