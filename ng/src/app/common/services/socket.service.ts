@@ -12,7 +12,7 @@ export class SocketService {
   private socket
 
   constructor() {
-    this.openSocket('http://localhost:3000')
+    this.openSocket()
   }
 
   openSocket(url?: string): void {
