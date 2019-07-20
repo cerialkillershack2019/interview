@@ -8,3 +8,12 @@ micronaut:
         enabled: true
         mapping: "/**"
         paths: "classpath:public"
+  server:
+    maxRequestSize: 1MB
+    host: localhost
+    netty:
+      maxHeaderSize: 500KB
+      worker:
+        threads: 8
+      childOptions:
+        autoRead: true
